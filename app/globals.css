@@ -1,0 +1,154 @@
+@import "tailwindcss";
+
+/* ------------------------------------------------------------------ *
+ * Weehan Math Tuition — design tokens
+ * Concept: a marked exercise-book page. Red pen circles the problem,
+ * green tick marks the fix. Ivory paper, warm ink, mono for exam data.
+ * ------------------------------------------------------------------ */
+@theme {
+  /* Paper & ink */
+  --color-paper: #fbf9f3; /* warm ivory background */
+  --color-paper-2: #f4efe3; /* deeper panel / ruled zones */
+  --color-ink: #1a1917; /* near-black warm text */
+  --color-ink-soft: #57534a; /* muted secondary text */
+  --color-line: #e4dccb; /* hairline / grid rule */
+
+  /* The two-gesture system */
+  --color-green: #1e4a3c; /* the fix / tick / primary CTA */
+  --color-green-deep: #163a2f; /* hover / pressed */
+  --color-green-tint: #e8efe8; /* soft fill */
+  --color-mark: #bb3b2c; /* red marking pen — used sparingly */
+  --color-mark-soft: #f3e0dc; /* soft fill for the "before" state */
+
+  /* Typography (self-hosted via next/font) */
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, -apple-system,
+    "Segoe UI", Roboto, sans-serif;
+  --font-serif: var(--font-fraunces), ui-serif, Georgia, "Times New Roman",
+    serif;
+  --font-mono: var(--font-plex-mono), ui-monospace, "SFMono-Regular", Menlo,
+    monospace;
+
+  /* Rhythm */
+  --radius: 0.5rem;
+}
+
+@layer base {
+  :root {
+    color-scheme: light;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    /* keep anchored sections clear of the sticky header */
+    scroll-padding-top: 5rem;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background-color: var(--color-paper);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-serif);
+    font-weight: 500;
+    letter-spacing: -0.015em;
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  ::selection {
+    background: var(--color-green);
+    color: var(--color-paper);
+  }
+
+  /* Visible, on-brand keyboard focus everywhere */
+  :focus-visible {
+    outline: 2px solid var(--color-green);
+    outline-offset: 2px;
+    border-radius: 3px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+    }
+  }
+}
+
+@layer components {
+  /* Section eyebrow — mono, tracked, like a marking-sheet label */
+  .eyebrow {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--color-ink-soft);
+  }
+
+  /* Readable prose measure */
+  .measure {
+    max-width: 40rem;
+  }
+
+  /* Faint exercise-book grid — used behind select zones only */
+  .graph-bg {
+    background-image:
+      linear-gradient(to right, var(--color-line) 1px, transparent 1px),
+      linear-gradient(to bottom, var(--color-line) 1px, transparent 1px);
+    background-size: 28px 28px;
+    background-position: center;
+    -webkit-mask-image: radial-gradient(
+      ellipse 80% 70% at 50% 30%,
+      #000 40%,
+      transparent 100%
+    );
+    mask-image: radial-gradient(
+      ellipse 80% 70% at 50% 30%,
+      #000 40%,
+      transparent 100%
+    );
+    opacity: 0.55;
+  }
+
+  /* Tabular figures for exam data (grades, stats, rate) */
+  .nums {
+    font-family: var(--font-mono);
+    font-variant-numeric: tabular-nums;
+    font-feature-settings: "tnum" 1;
+  }
+
+  /* Hand-drawn annotation: draws itself on load (once) */
+  .annotate path {
+    stroke-dasharray: var(--len, 400);
+    stroke-dashoffset: var(--len, 400);
+    animation: draw 0.9s 0.35s ease-out forwards;
+  }
+  @keyframes draw {
+    to {
+      stroke-dashoffset: 0;
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .annotate path {
+      stroke-dashoffset: 0;
+      animation: none;
+    }
+  }
+}
