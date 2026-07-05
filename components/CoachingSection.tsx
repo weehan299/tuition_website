@@ -1,5 +1,5 @@
 import { site } from "@/content/site";
-import { copy, failureModes } from "@/content/copy";
+import { copy } from "@/content/copy";
 import { testimonials } from "@/content/testimonials";
 import { Container, Eyebrow } from "@/components/ui";
 import { Tick } from "@/components/Marks";
@@ -9,8 +9,8 @@ import { cn } from "@/lib/cn";
 
 const caseStudies = testimonials.filter((t) => t.kind === "case-study");
 
-/** One row of the 6-step ledger. Numbering is meaningful here — the brief
- *  mandates this exact order, so the sequence carries real information. */
+/** One block of the coaching walkthrough. The numbering encodes a real
+ *  narrative order: how it works → proof → what's included → rate → next step. */
 function Step({
   n,
   label,
@@ -58,43 +58,21 @@ export function CoachingSection() {
         </p>
 
         <ol className="mt-16 space-y-12">
-          {/* 1 ─ Identify */}
-          <Step n="01" label="Identify" title="Start from the exact problem, not a vague one">
-            <p className="text-ink-soft">
-              These are the patterns this service is built for:
-            </p>
-            <ul className="mt-4 grid gap-x-8 gap-y-2.5 sm:grid-cols-2">
-              {failureModes.map((mode, i) => (
-                <li key={mode} className="flex gap-3 text-[1.02rem]">
-                  <span aria-hidden className="nums mt-1 text-xs text-mark">
-                    {String(i + 1).padStart(2, "0")}
-                  </span>
-                  <span className="text-ink">{mode}</span>
+          {/* 01 ─ Method (bold labels carry the scan) */}
+          <Step n="01" label="Method" title={copy.coaching.method.title}>
+            <ul className="space-y-3">
+              {copy.coaching.method.points.map((pt) => (
+                <li key={pt.k} className="text-[1.05rem] leading-relaxed">
+                  <span className="font-medium text-ink">{pt.k}</span>
+                  <span className="text-ink-soft"> — {pt.v}</span>
                 </li>
               ))}
             </ul>
-            <p className="measure mt-5 text-ink-soft">
-              If none of it sounds familiar, we&rsquo;re probably not the right
-              fit — and saying so early is part of the job.
-            </p>
           </Step>
 
-          {/* 2 ─ Approach */}
-          <Step n="02" label="Method" title={copy.coaching.step2.title}>
-            <p className="text-ink-soft">{copy.coaching.step2.lead}</p>
-            <dl className="mt-5 grid gap-x-10 gap-y-5 sm:grid-cols-2">
-              {copy.coaching.step2.points.map((pt) => (
-                <div key={pt.k}>
-                  <dt className="font-medium text-ink">{pt.k}</dt>
-                  <dd className="mt-1 text-ink-soft">{pt.v}</dd>
-                </div>
-              ))}
-            </dl>
-          </Step>
-
-          {/* 3 ─ Evidence */}
-          <Step n="03" label="Evidence" title={copy.coaching.step3.title}>
-            <p className="text-ink-soft">{copy.coaching.step3.lead}</p>
+          {/* 02 ─ Evidence */}
+          <Step n="02" label="Evidence" title={copy.coaching.evidence.title}>
+            <p className="text-ink-soft">{copy.coaching.evidence.lead}</p>
             <div className="mt-6 grid gap-4 sm:grid-cols-3">
               {caseStudies.map((t) => (
                 <figure
@@ -116,10 +94,10 @@ export function CoachingSection() {
             </div>
           </Step>
 
-          {/* 4 ─ What's included */}
-          <Step n="04" label="Included" title={copy.coaching.step4.title}>
+          {/* 03 ─ What's included */}
+          <Step n="03" label="Included" title={copy.coaching.included.title}>
             <ul className="grid gap-x-10 gap-y-3 sm:grid-cols-2">
-              {copy.coaching.step4.items.map((item) => (
+              {copy.coaching.included.items.map((item) => (
                 <li key={item} className="flex gap-3">
                   <Tick className="mt-0.5 h-5 w-5 text-green" />
                   <span className="text-ink">{item}</span>
@@ -128,22 +106,22 @@ export function CoachingSection() {
             </ul>
           </Step>
 
-          {/* 5 ─ Rate. Stated once, unqualified. */}
-          <Step n="05" label="Rate" title={copy.coaching.step5.title}>
+          {/* 04 ─ Rate. Stated once, unqualified. */}
+          <Step n="04" label="Rate" title={copy.coaching.rate.title}>
             <p className="text-ink">
               <span className="nums text-5xl font-medium sm:text-6xl">$140</span>{" "}
               <span className="text-xl text-ink-soft">per session</span>
             </p>
-            <p className="mt-4 text-ink-soft">{copy.coaching.step5.clarifier}</p>
+            <p className="mt-4 text-ink-soft">{copy.coaching.rate.clarifier}</p>
           </Step>
 
-          {/* 6 ─ Invite */}
-          <Step n="06" label="Fit" title={copy.coaching.step6.title} last>
-            <p className="measure text-ink-soft">{copy.coaching.step6.body}</p>
+          {/* 05 ─ Fit */}
+          <Step n="05" label="Fit" title={copy.coaching.fit.title} last>
+            <p className="measure text-ink-soft">{copy.coaching.fit.body}</p>
             <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:items-center">
               <WhatsAppButton
-                label={copy.coaching.step6.cta}
-                context="coaching-step6"
+                label={copy.coaching.fit.cta}
+                context="coaching-fit"
               />
               <a
                 href="#enquire"

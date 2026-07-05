@@ -32,7 +32,7 @@ export const site = {
 
   // ── Offer ────────────────────────────────────────────────────────────
   // Rate is fixed by the brief. Stated once, unqualified, in the coaching
-  // section (Step 5). Do not add comparisons or apologies around it.
+  // section (the Rate block). Do not add comparisons or apologies around it.
   ratePerSession: "$140 per session",
 
   // TODO: confirm mode + areas. Feeds the FAQ, footer, and LocalBusiness schema.

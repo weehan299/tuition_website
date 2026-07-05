@@ -2,8 +2,8 @@
  * Long-form page copy, separated from presentation.
  *
  * Tone rules (from the brief — enforce on every edit):
- *  • The 6-step coaching sequence must stay in order; price appears once, in
- *    Step 5, unqualified.
+ *  • State each idea once. Price appears once, in the Rate block, unqualified,
+ *    and never leads.
  *  • No apologetic framing anywhere: no "although the fee is higher", "we know
  *    it's expensive", "worth every dollar", "premium but", and no comparisons
  *    to cheaper alternatives. The reader should finish asking "is my child a
@@ -12,8 +12,8 @@
 
 import { site } from "./site";
 
-/** The specific failure modes this service is built for. Reused in the
- *  Problem section and in Step 1 of the coaching sequence. */
+/** The specific failure modes this service is built for. Shown in the Problem
+ *  section as the emotional hook, right before the coaching section. */
 export const failureModes = [
   "Understands it in class, but can't reproduce the working alone at home.",
   "The same silly mistakes keep coming back, however many papers they do.",
@@ -27,7 +27,7 @@ export const copy = {
     // The headline itself is rendered in Hero.tsx so the marking annotation
     // can sit on the exact words. Sub-headline and CTAs live here.
     subhead:
-      "Diagnostic-led 1-to-1 coaching for secondary students — every lesson planned around the specific gaps holding your child's grade down, not a shared worksheet.",
+      "1-to-1 coaching built around the specific gaps holding your child's grade down.",
     primaryCta: "Enquire about a slot",
     secondaryCta: "See how the coaching works",
   },
@@ -45,37 +45,34 @@ export const copy = {
     eyebrow: "How the coaching works",
     heading: "A diagnostic-led method — not regular tuition, delivered privately.",
     intro:
-      "This is a different product from a standard worksheet lesson. Every student is coached against their own set of gaps, and the plan changes as those gaps close.",
+      "Every student is coached against their own gaps, and the plan changes as those gaps close.",
 
-    step2: {
+    method: {
       title: "A method built around the misconception, not the question",
-      lead: "Here is what actually happens once your child starts:",
+      // One scannable line each — the bold label carries the meaning.
       points: [
         {
           k: "Diagnostic first",
-          v: "Every student begins with a written diagnostic that surfaces the exact misconceptions and gaps — not just “weak topics”.",
+          v: "we find the exact misconceptions, not just “weak topics”.",
         },
-        {
-          k: "Individually planned",
-          v: "Each lesson is designed for that student's current gap set. There is no shared worksheet rotation.",
-        },
+        { k: "Individually planned", v: "no shared worksheets, ever." },
         {
           k: "Adjusted every lesson",
-          v: "The plan updates on what they got wrong last session and in school that week.",
+          v: "updated on what they missed last session and in school.",
         },
         {
-          k: "Fix the pattern, not the question",
-          v: "The goal is the underlying error pattern, so they can solve the next 20 variants unaided — not just the one on the page.",
+          k: "Fix the pattern",
+          v: "so they solve the next 20 variants unaided, not just the one on the page.",
         },
       ],
     },
 
-    step3: {
+    evidence: {
       title: "Evidence it moves the grade",
       lead: "A few students, with permission — the method, not just “a nice teacher”.",
     },
 
-    step4: {
+    included: {
       title: "What's included",
       items: [
         "An initial written diagnostic and full gap analysis",
@@ -88,13 +85,13 @@ export const copy = {
       ],
     },
 
-    step5: {
+    rate: {
       title: "The rate",
       // Rendered once, unqualified. The only neutral clarifier permitted:
       clarifier: "Billed per session. No package lock-in.",
     },
 
-    step6: {
+    fit: {
       title: "See if it's a fit",
       body: "Places are taken on fit, and a few open each term. Send a short enquiry and we'll arrange a call to check whether the coaching is right for your child.",
       // TODO (open item): decide free trial vs paid diagnostic — this CTA and

@@ -42,9 +42,9 @@ All copy and brand details live in [`content/`](content/). Search the repo for
 | `content/testimonials.ts` | Testimonials + grade results (mark the 2–3 strongest as `"case-study"`) |
 | `content/faq.ts` | FAQ questions & answers |
 
-**House rules baked into the copy (keep them):** the 6 coaching steps stay in
-order; the price appears **once**, in Step 5, as `$140 per session`, with no
-apology or comparison. `content/copy.ts` documents the tone rules at the top.
+**House rules baked into the copy (keep them):** state each idea once; the
+price appears **once**, in the Rate block, as `$140 per session`, unqualified,
+and never leads. `content/copy.ts` documents the tone rules at the top.
 
 ### Adding real photos
 
