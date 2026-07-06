@@ -3,8 +3,9 @@ import { site } from "@/content/site";
 import { copy } from "@/content/copy";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 import { TrackedLink } from "@/components/TrackedLink";
-import { UnderlineMark, Tick } from "@/components/Marks";
+import { UnderlineMark, CircleMark } from "@/components/Marks";
 import { Container } from "@/components/ui";
+import { cn } from "@/lib/cn";
 
 export function Hero() {
   return (
@@ -77,43 +78,114 @@ export function Hero() {
           </dl>
         </div>
 
-        {/* ── Diagnostic vignette (the signature) ─────────────────── */}
-        <figure className="relative mx-auto w-full max-w-md lg:mx-0">
-          <div className="rounded-xl border border-line bg-white/70 p-6 shadow-[0_1px_0_rgba(0,0,0,0.02),0_18px_40px_-24px_rgba(26,25,23,0.35)] backdrop-blur-[2px] sm:p-7">
-            <figcaption className="eyebrow mb-5 flex items-center justify-between">
-              <span>Diagnostic · Quadratics</span>
+        {/* ── Diagnostic vignette (the signature) ─────────────────── *
+         * Four different-looking topics, one shared slip. The claim
+         * a tuition centre can't make: pattern over instance.        */}
+        <figure
+          aria-label={copy.hero.diagnostic.ariaLabel}
+          className="relative mx-auto w-full max-w-lg lg:mx-0"
+        >
+          <div className="rounded-xl border border-line bg-white/70 p-4 shadow-[0_1px_0_rgba(0,0,0,0.02),0_18px_40px_-24px_rgba(26,25,23,0.35)] backdrop-blur-[2px] sm:p-7">
+            <figcaption className="eyebrow mb-5 flex items-center justify-between sm:mb-6">
+              <span>{copy.hero.diagnostic.eyebrow}</span>
               <span aria-hidden className="text-mark">
                 ✎
               </span>
             </figcaption>
 
-            <div className="nums space-y-3 text-[0.98rem] leading-relaxed text-ink">
-              <p>x² + 5x + 6 = 0</p>
-              <p>(x + 2)(x + 3) = 0</p>
-              <p className="flex items-center gap-3">
-                <span className="decoration-mark line-through decoration-2">
-                  x = 2,&nbsp; x = 3
-                </span>
-                <span className="text-[0.78rem] italic text-mark">
-                  ← sign slipped
-                </span>
-              </p>
+            {/* The convergence: 4 corners → 1 node */}
+            <div className="relative aspect-[5/4] sm:aspect-[7/5]">
+              {/* Leader lines. Behind the panels, covered at the centre by the node. */}
+              <svg
+                aria-hidden
+                viewBox="0 0 100 100"
+                preserveAspectRatio="none"
+                className="annotate pointer-events-none absolute inset-0 h-full w-full"
+              >
+                <path
+                  d="M 22 32 Q 38 42, 50 50"
+                  stroke="var(--color-mark)"
+                  strokeWidth="1.3"
+                  strokeLinecap="round"
+                  fill="none"
+                  vectorEffect="non-scaling-stroke"
+                />
+                <path
+                  d="M 78 32 Q 62 42, 50 50"
+                  stroke="var(--color-mark)"
+                  strokeWidth="1.3"
+                  strokeLinecap="round"
+                  fill="none"
+                  vectorEffect="non-scaling-stroke"
+                />
+                <path
+                  d="M 22 62 Q 38 56, 50 50"
+                  stroke="var(--color-mark)"
+                  strokeWidth="1.3"
+                  strokeLinecap="round"
+                  fill="none"
+                  vectorEffect="non-scaling-stroke"
+                />
+                <path
+                  d="M 78 62 Q 62 56, 50 50"
+                  stroke="var(--color-mark)"
+                  strokeWidth="1.3"
+                  strokeLinecap="round"
+                  fill="none"
+                  vectorEffect="non-scaling-stroke"
+                />
+              </svg>
 
-              <div className="my-1 flex items-center gap-3 pt-1">
-                <span aria-hidden className="h-px flex-1 bg-line" />
-                <span className="eyebrow text-green">the fix</span>
-                <span aria-hidden className="h-px flex-1 bg-line" />
+              {/* Four panels anchored to the four corners */}
+              <div className="relative grid h-full grid-cols-2 grid-rows-2">
+                {copy.hero.diagnostic.panels.map((panel, i) => {
+                  const isRight = i % 2 === 1;
+                  const isBottom = i >= 2;
+                  const anchor = cn(
+                    isRight
+                      ? "justify-self-end text-right"
+                      : "justify-self-start text-left",
+                    isBottom ? "self-end" : "self-start",
+                  );
+                  return (
+                    <article
+                      key={panel.topic}
+                      className={cn("max-w-[10rem] sm:max-w-[12rem]", anchor)}
+                    >
+                      <p className="eyebrow mb-1 text-[0.56rem] sm:mb-1.5 sm:text-[0.62rem]">
+                        {panel.topic}
+                      </p>
+                      <div className="nums space-y-0.5 text-[0.7rem] leading-relaxed text-ink sm:text-[0.82rem]">
+                        {panel.pre.map((line, j) => (
+                          <p key={j}>{line}</p>
+                        ))}
+                        <p className="pt-0.5">
+                          <span className="relative inline-block">
+                            {panel.answer}
+                            <CircleMark className="-inset-x-2 -inset-y-1 h-[calc(100%+8px)] w-[calc(100%+16px)] sm:-inset-x-3 sm:-inset-y-1.5 sm:h-[calc(100%+12px)] sm:w-[calc(100%+24px)]" />
+                          </span>
+                        </p>
+                        <p className="mt-1.5 font-sans text-[0.6rem] italic leading-tight text-mark sm:mt-2 sm:text-[0.68rem]">
+                          {panel.error}
+                        </p>
+                      </div>
+                    </article>
+                  );
+                })}
               </div>
 
-              <p className="flex items-center gap-3 font-medium">
-                <Tick className="h-5 w-5 text-green" />
-                <span>x = −2,&nbsp; x = −3</span>
-              </p>
+              {/* Centre node — the diagnostic conclusion */}
+              <div className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+                <div className="rounded-2xl border border-line bg-paper px-3.5 py-2 shadow-[0_1px_2px_rgba(26,25,23,0.06),0_8px_20px_-8px_rgba(26,25,23,0.2)] sm:px-4 sm:py-2.5">
+                  <span className="block max-w-[8.5rem] text-balance text-center font-serif text-[0.75rem] italic leading-snug text-ink sm:max-w-[10.5rem] sm:text-[0.85rem]">
+                    {copy.hero.diagnostic.nodeLabel}
+                  </span>
+                </div>
+              </div>
             </div>
           </div>
           <figcaption className="mt-4 px-1 text-[0.92rem] leading-relaxed text-ink-soft">
-            We don&rsquo;t just mark it wrong. We find the exact line it broke —
-            then make sure it never breaks again.
+            {copy.hero.diagnostic.caption}
           </figcaption>
         </figure>
       </Container>

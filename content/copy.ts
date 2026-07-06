@@ -30,6 +30,55 @@ export const copy = {
       "Premium 1-to-1 maths coaching that identifies the exact gaps holding your child back — and fixes them at the source.",
     primaryCta: "Enquire about a slot",
     secondaryCta: "See how the coaching works",
+
+    // The right-column diagnostic vignette. Four different-looking topics,
+    // each failing at the same shared slip (not tracking the negative),
+    // with the four errors converging on one node. Editing rules:
+    //   • Keep exactly four panels. The claim is "many topics, one habit".
+    //   • `answer` is the wrong answer the red pen circles — pick a single,
+    //     unambiguous fragment. Everything else stays uncircled.
+    //   • `error` is the tutor's red-pen margin note under the circle. Keep
+    //     it under ~4 words, in the tutor's voice. No leading arrow — the
+    //     label sits directly below the circle, so directional glyphs read
+    //     as vestigial.
+    //   • `nodeLabel` is the shared habit — the answer to *why* all four
+    //     panels are the same slip. If you change it, also update `ariaLabel`.
+    //   • Don't add a "fix" line here. Green is reserved for the coaching
+    //     section; this graphic is diagnosis, not correction.
+    diagnostic: {
+      eyebrow: "Diagnostic · One habit, four topics",
+      panels: [
+        {
+          topic: "Quadratic",
+          pre: ["(x + 2)(x + 3) = 0"],
+          answer: "x = 2,  x = 3",
+          error: "sign flipped wrong",
+        },
+        {
+          topic: "Simult. eq.",
+          pre: ["2x + y = 5,  2x − y = 1"],
+          answer: "0 = 4",
+          error: "double negative dropped",
+        },
+        {
+          topic: "Inequality",
+          pre: ["−2x > 6"],
+          answer: "x > −3",
+          error: "didn't flip the sign",
+        },
+        {
+          topic: "Factorising",
+          pre: ["−(x − 3)"],
+          answer: "−x − 3",
+          error: "didn't distribute the −",
+        },
+      ],
+      nodeLabel: "Track the negative sign, every step.",
+      caption:
+        "Four topics. One habit. That's what “more tuition” keeps missing.",
+      ariaLabel:
+        "Four algebra topics — quadratic, simultaneous equations, inequality, factorisation — each failing at one shared habit: tracking the negative sign through every step.",
+    },
   },
 
   problem: {
