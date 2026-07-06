@@ -83,10 +83,9 @@ export const copy = {
 
   problem: {
     eyebrow: "The pattern",
-    heading: "More practice hasn't moved the grade — because practice isn't the problem.",
+    heading: "Does one of these sound like your child?",
     paragraphs: [
-      "If your child works hard and still lands at the same grade, the issue usually isn't effort or ability. It's a specific gap — a misconception repeated across dozens of questions — that ordinary practice never isolates.",
-      "These are the patterns 1-to-1 coaching is built to fix. If one of them sounds like your child, the diagnostic will find exactly where it starts.",
+      "If any of them do, this is what the coaching is built to fix — and the diagnostic will find where it starts.",
     ],
   },
 
