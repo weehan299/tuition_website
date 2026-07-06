@@ -27,7 +27,7 @@ export const copy = {
     // The headline itself is rendered in Hero.tsx so the marking annotation
     // can sit on the exact words. Sub-headline and CTAs live here.
     subhead:
-      "1-to-1 coaching built around the specific gaps holding your child's grade down.",
+      "Premium 1-to-1 maths coaching that identifies the exact gaps holding your child back — and fixes them at the source.",
     primaryCta: "Enquire about a slot",
     secondaryCta: "See how the coaching works",
   },

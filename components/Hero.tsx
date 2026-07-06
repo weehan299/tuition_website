@@ -3,7 +3,7 @@ import { site } from "@/content/site";
 import { copy } from "@/content/copy";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 import { TrackedLink } from "@/components/TrackedLink";
-import { CircleMark, UnderlineMark, Tick } from "@/components/Marks";
+import { UnderlineMark, Tick } from "@/components/Marks";
 import { Container } from "@/components/ui";
 
 export function Hero() {
@@ -19,17 +19,15 @@ export function Hero() {
           </p>
 
           <h1 className="mt-6 font-serif text-[clamp(2.4rem,6.2vw,4.15rem)] font-medium leading-[1.03]">
-            The{" "}
-            <span className="relative inline-block">
-              B
-              <CircleMark className="left-1/2 top-1/2 h-[1.8em] w-[2em] -translate-x-1/2 -translate-y-1/2 overflow-visible" />
+            Your child doesn&rsquo;t need{" "}
+            <span className="whitespace-nowrap text-ink-soft line-through decoration-mark decoration-[3px]">
+              more tuition.
             </span>{" "}
-            that won&rsquo;t move? We find the exact reason — and{" "}
+            They need the{" "}
             <span className="relative inline-block whitespace-nowrap">
-              fix it
+              right diagnosis.
               <UnderlineMark className="-bottom-2 left-0 h-3 w-full overflow-visible" />
             </span>
-            .
           </h1>
 
           <p className="measure mt-7 text-lg leading-relaxed text-ink-soft">
