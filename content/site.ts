@@ -33,7 +33,7 @@ export const site = {
   // ── Offer ────────────────────────────────────────────────────────────
   // Rate is fixed by the brief. Stated once, unqualified, in the coaching
   // section (the Rate block). Do not add comparisons or apologies around it.
-  ratePerSession: "$140 per session",
+  ratePerHour: "$140 per hour",
 
   // TODO: confirm mode + areas. Feeds the FAQ, footer, and LocalBusiness schema.
   mode: "Online across Singapore, and in-person in the east",

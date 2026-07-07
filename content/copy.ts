@@ -138,7 +138,7 @@ export const copy = {
     rate: {
       title: "The rate",
       // Rendered once, unqualified. The only neutral clarifier permitted:
-      clarifier: "Billed per session. No package lock-in.",
+      clarifier: "Billed at the end of the month. No package lock-in.",
     },
 
     fit: {
@@ -155,9 +155,9 @@ export const copy = {
     heading: "The person who'll be teaching your child.",
     // TODO: replace with the real 200–300 word bio.
     paragraphs: [
-      `I'm ${site.tutorName}, and I coach secondary math one-to-one. I started because I kept meeting bright students who had been told they were “just not a math person” — when in fact they had two or three specific misconceptions no one had ever isolated.`,
-      "My work is diagnostic before it is instructional. I find the exact step where the reasoning breaks, rebuild it, and then prove it holds across every variant of the question. Grades move because the underlying error is gone, not because we drilled harder.",
-      "I take on a limited number of students at a time so each plan stays genuinely individual.",
+      `I'm ${site.tutorName}, and I coach secondary, IP and JC math one-to-one. If your child understands things in class but freezes on their own, or keeps making the “same silly mistake,” that's usually not carelessness and never a sign they can't do math. More often it's a couple of specific misconceptions sitting underneath, quietly costing marks.`,
+      "What I do is find where the reasoning actually breaks, work out why, and check the fix holds across the different ways an exam can ask the same thing. It's detailed work, and it's the part that tends to move a grade.",
+      "I only take on a handful of students at once, so the plan stays genuinely built around your child.",
     ],
     // TODO: replace with real, specific credentials (degrees, MOE reg., schools).
     credentials: [

@@ -25,8 +25,8 @@ export const faq: FaqItem[] = [
     a: `${site.mode}. In-person coaching covers ${site.areasServed.split(";")[0].trim()}. Online works just as well for most students and opens up the rest of Singapore.`,
   },
   {
-    q: "How is billing handled — per session or a package?",
-    a: "Billed per session, not in packages — so you're never committing to a block up front. The per-session rate is stated plainly in the coaching section above.",
+    q: "How is billing handled — hourly or a package?",
+    a: "Billed by the hour at the end of each month, not in packages — so you're never committing to a block up front. The hourly rate is stated plainly in the coaching section above.",
   },
   {
     q: "How do you decide whether my child is a fit?",

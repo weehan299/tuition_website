@@ -120,7 +120,7 @@ export function CoachingSection() {
           <Step n="04" label="Rate" title={copy.coaching.rate.title}>
             <p className="text-ink">
               <span className="nums text-5xl font-medium sm:text-6xl">$140</span>{" "}
-              <span className="text-xl text-ink-soft">per session</span>
+              <span className="text-xl text-ink-soft">per hour</span>
             </p>
             <p className="mt-4 text-ink-soft">{copy.coaching.rate.clarifier}</p>
           </Step>
