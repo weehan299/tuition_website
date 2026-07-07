@@ -3,9 +3,14 @@
  * launch — at least 2–3 "case-study" ones speaking to method and transformation.
  * The brief requires real attribution; avoid generic "great teacher" lines.
  *
- *  kind: "case-study" → shown as evidence inside the coaching section (Step 3)
+ *  kind: "case-study" → shown as evidence inside the coaching section (Step 2)
  *  kind: "short"      → shown in the Social Proof wall
  *  result (optional)  → a { from, to } grade jump, rendered as a marked uplift
+ *  echoes (optional)  → ties a case study back to a numbered symptom from the
+ *                       Problem section (failureModes). `n` must match that
+ *                       list's 1-based index, padded to two digits, so the card
+ *                       reads as the *resolution* of a stated pattern, not a
+ *                       re-listing of it. Case studies only.
  */
 
 export type Testimonial = {
@@ -14,6 +19,7 @@ export type Testimonial = {
   level: string;
   kind: "case-study" | "short";
   result?: { from: string; to: string };
+  echoes?: { n: string; label: string };
 };
 
 export const testimonials: Testimonial[] = [
@@ -24,6 +30,7 @@ export const testimonials: Testimonial[] = [
     name: "Mrs Lim",
     level: "Parent of Sec 3 student",
     result: { from: "C6", to: "A1" },
+    echoes: { n: "02", label: "the silly mistakes that kept coming back" },
   },
   {
     kind: "case-study",
@@ -32,6 +39,7 @@ export const testimonials: Testimonial[] = [
     name: "Mr Tan",
     level: "Parent of Sec 4 student",
     result: { from: "B4", to: "A2" },
+    echoes: { n: "04", label: "stuck at a B, term after term" },
   },
   {
     kind: "case-study",
@@ -39,6 +47,7 @@ export const testimonials: Testimonial[] = [
       "I actually understand what I'm doing now instead of copying a method. When a question looks different I can still start it.",
     name: "Rachel",
     level: "Sec 4 student",
+    echoes: { n: "01", label: "got it in class, lost it alone" },
   },
   {
     kind: "short",

@@ -91,33 +91,35 @@ export const copy = {
 
   coaching: {
     eyebrow: "How the coaching works",
-    heading: "A diagnostic-led method — not regular tuition, delivered privately.",
+    // Third beat of a relay: Hero makes the claim, the pattern section proves
+    // it, and this answers what they can't yet infer — what happens *after* the
+    // diagnosis. Do not re-sell diagnosis here; the hero and the diagnostic
+    // graphic already own it.
+    heading: "What happens once the diagnosis is done.",
     intro:
-      "Every student is coached against their own gaps, and the plan changes as those gaps close.",
+      "You've seen the pattern. This is the part you can't infer yet — how a habit, not a topic, actually gets fixed, week to week.",
 
     method: {
-      title: "A method built around the misconception, not the question",
-      // One scannable line each — the bold label carries the meaning.
+      title: "The fix isn't more practice — it's rewiring the habit",
+      // A callback to the hero diagnostic (the negative-sign slip), not a
+      // restatement of it — this is the mechanism the demo left unanswered.
+      lead: "Once the diagnostic isolates the habit — like the negative-sign slip above — each lesson is built to interrupt it until the correct step becomes automatic across every topic it touches. As each habit closes, the plan moves to the next: week 2 isn't week 8.",
+      // Only genuinely-new operational facts remain. "Diagnostic first" and
+      // "Fix the pattern" were removed as duplicates of the hero + demo above.
       points: [
-        {
-          k: "Diagnostic first",
-          v: "we find the exact misconceptions, not just “weak topics”.",
-        },
         { k: "Individually planned", v: "no shared worksheets, ever." },
         {
           k: "Adjusted every lesson",
           v: "updated on what they missed last session and in school.",
-        },
-        {
-          k: "Fix the pattern",
-          v: "so they solve the next 20 variants unaided, not just the one on the page.",
         },
       ],
     },
 
     evidence: {
       title: "Evidence it moves the grade",
-      lead: "A few students, with permission — the method, not just “a nice teacher”.",
+      // Framed as resolution, not a re-listing: each case study below carries a
+      // callback to the numbered pattern it closes (see testimonials.echoes).
+      lead: "Not “a nice teacher” — the same patterns from the top of the page, closed. A few students, shared with permission.",
     },
 
     included: {

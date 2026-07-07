@@ -58,9 +58,13 @@ export function CoachingSection() {
         </p>
 
         <ol className="mt-16 space-y-12">
-          {/* 01 ─ Method (bold labels carry the scan) */}
-          <Step n="01" label="Method" title={copy.coaching.method.title}>
-            <ul className="space-y-3">
+          {/* 01 ─ The fix. Leads with the mechanism (a callback to the hero
+              diagnostic), then the two remaining operational facts. */}
+          <Step n="01" label="The fix" title={copy.coaching.method.title}>
+            <p className="measure text-[1.05rem] leading-relaxed text-ink-soft">
+              {copy.coaching.method.lead}
+            </p>
+            <ul className="mt-5 space-y-3">
               {copy.coaching.method.points.map((pt) => (
                 <li key={pt.k} className="text-[1.05rem] leading-relaxed">
                   <span className="font-medium text-ink">{pt.k}</span>
@@ -79,6 +83,12 @@ export function CoachingSection() {
                   key={t.name}
                   className="flex flex-col rounded-xl border border-line bg-paper p-5"
                 >
+                  {t.echoes ? (
+                    <p className="eyebrow mb-3 !text-mark">
+                      Pattern {t.echoes.n}{" "}
+                      <span className="text-ink-soft">· {t.echoes.label}</span>
+                    </p>
+                  ) : null}
                   {t.result ? (
                     <ResultBadge from={t.result.from} to={t.result.to} />
                   ) : null}
