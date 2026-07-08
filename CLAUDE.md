@@ -22,8 +22,10 @@ Path alias `@/*` maps to the repo root (`tsconfig.json`) — imports are `@/lib/
 Single-page marketing site whose one job is capturing tuition enquiries (WhatsApp click-to-chat + a form). The page is assembled in `app/page.tsx` in a **fixed section order — do not reorder** (mandated by the brief, per the comment in that file):
 
 ```
-Header → Hero → ProblemSection → CoachingSection → About → SocialProof → FAQ → FinalCTA → EnquirySection → Footer
+Header → Hero → ProblemSection → CoachingSection → About → SocialProof → FAQ → EnquirySection → Footer
 ```
+
+(The brief's original FinalCTA band was merged into EnquirySection at the owner's request. The home FAQ section shows only `featured` questions from `content/faq.ts`; the full list lives on the standalone `/faq` route.)
 
 Everything is a Server Component except three explicit client leaves (`EnquiryForm`, `FAQ` accordion, `Header` mobile menu). Keep that split; the hero is intentionally typographic (no image) to protect LCP.
 

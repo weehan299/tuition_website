@@ -183,15 +183,9 @@ export const copy = {
     seeAll: "See all questions",
   },
 
-  finalCta: {
-    eyebrow: "Enquire",
-    heading: "Is your child a fit for this?",
-    body: "Places are limited and taken on fit. Send a short enquiry and we'll arrange a call to see whether the coaching is right — no commitment either way.",
-  },
-
   enquiry: {
-    heading: "Enquire about a slot",
-    sub: "Three ways to reach us. WhatsApp is fastest; the form below works just as well.",
+    heading: "Is your child a fit for this?",
+    sub: "Places are limited and taken on fit. WhatsApp is fastest; the form works just as well — no commitment either way.",
     formHeading: "Or send a short enquiry",
     // Expectation-setting line shown near the form (brief §6.2).
     expectation: `We'll reply ${site.responseWindow} to arrange a short call and check whether the fit is right.`,
