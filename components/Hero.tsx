@@ -67,14 +67,6 @@ export function Hero() {
                 years coaching
               </dd>
             </div>
-            <span aria-hidden className="h-4 w-px bg-line" />
-            <div className="flex items-baseline gap-1.5">
-              <dt className="sr-only">Students taught</dt>
-              <dd>
-                <span className="nums text-ink">{site.stats.pastStudents}+</span>{" "}
-                students taught
-              </dd>
-            </div>
           </dl>
         </div>
 

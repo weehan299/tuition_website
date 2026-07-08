@@ -10,7 +10,6 @@
 export const site = {
   // ── Brand ────────────────────────────────────────────────────────────
   brandName: "Weehan Math Tuition",
-  // TODO: replace with the tutor's real name (used in the trust strip + bio).
   tutorName: "Wee Han",
   tutorRole: "Math tutor · Diagnostic-led 1-to-1 coaching",
 
@@ -22,13 +21,10 @@ export const site = {
 
   // ── Contact ──────────────────────────────────────────────────────────
   // WhatsApp Business number in E.164 *digits only* (country code, no "+").
-  // TODO: replace 6580000000 with the real number, or set NEXT_PUBLIC_WHATSAPP_NUMBER.
-  whatsappNumber: process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "6580000000",
-  // TODO: real phone number for display + tel: link.
-  phoneDisplay: "+65 8000 0000",
-  phoneE164: "+6580000000",
-  // TODO: real reply-to inbox.
-  email: "hello@weehanmathtuition.com",
+  whatsappNumber: process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "6583821568",
+  phoneDisplay: "+65 8382 1568",
+  phoneE164: "+6583821568",
+  email: "whlabssg@gmail.com",
 
   // ── Offer ────────────────────────────────────────────────────────────
   // Rate is fixed by the brief. Stated once, unqualified, in the coaching
@@ -42,10 +38,9 @@ export const site = {
   // How fast you promise to reply. Sets expectations on the form.
   responseWindow: "within 24 hours on weekdays",
 
-  // Trust-strip numbers. TODO: use your real figures.
+  // Trust-strip numbers.
   stats: {
-    yearsTutoring: 8,
-    pastStudents: 120,
+    yearsTutoring: 5,
   },
 
   // Optional social links — leave blank to hide. TODO if you have them.

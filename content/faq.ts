@@ -18,7 +18,7 @@ export const faq: FaqItem[] = [
   },
   {
     q: "What levels and subjects do you cover?",
-    a: "Secondary math and O-Level (E Math and A Math), Sec 1 to 4. A-Level math on request. If it's outside this, I'll tell you honestly at the enquiry stage.",
+    a: "Secondary math (Sec 1–4; E Math and A Math for O-Level) and A-Level math at JC. If it's outside this, I'll tell you honestly at the enquiry stage.",
   },
   {
     q: "In person, online, or both — and which areas do you serve?",

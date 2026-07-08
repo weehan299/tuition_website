@@ -23,7 +23,7 @@ export const failureModes = [
 
 export const copy = {
   hero: {
-    eyebrow: "Premium 1-to-1 math tuition · Secondary",
+    eyebrow: "Premium 1-to-1 math tuition · Secondary & JC",
     // The headline itself is rendered in Hero.tsx so the marking annotation
     // can sit on the exact words. Sub-headline and CTAs live here.
     subhead:
@@ -70,7 +70,7 @@ export const copy = {
           topic: "Factorising",
           pre: ["−(x − 3)"],
           answer: "−x − 3",
-          error: "didn't distribute the −",
+          error: "didn't distribute the sign",
         },
       ],
       nodeLabel: "Track the negative sign, every step.",
@@ -131,7 +131,7 @@ export const copy = {
         "Between-session WhatsApp support for stuck questions (weekdays)",
         "A termly progress update written for the parent",
         site.mode,
-        "Secondary levels: Sec 1–4, O-Level (A-Level on request)",
+        "Levels: Sec 1–4 (O-Level) and JC (A-Level)",
       ],
     },
 
@@ -159,12 +159,10 @@ export const copy = {
       "What I do is find where the reasoning actually breaks, work out why, and check the fix holds across the different ways an exam can ask the same thing. It's detailed work, and it's the part that tends to move a grade.",
       "I only take on a handful of students at once, so the plan stays genuinely built around your child.",
     ],
-    // TODO: replace with real, specific credentials (degrees, MOE reg., schools).
     credentials: [
-      "B.Sc. (Hons) Mathematics — [University]",
-      "8 years coaching secondary & O-Level math",
-      "120+ students taught across [schools]",
-      "MOE-registered tutor — [reg. no., if applicable]",
+      "M.Sc. Data Science & Machine Learning — NUS",
+      "B.Sc. Mathematics, Honours (Highest Distinction) — NUS",
+      "5+ years coaching O-Level and A-Level math",
     ],
   },
 

@@ -39,6 +39,7 @@ export const metadata: Metadata = {
     "1-to-1 math tuition",
     "secondary math tuition Singapore",
     "O-Level math coaching",
+    "A-Level math tuition",
     "A Math tutor",
     "private math tuition",
   ],
