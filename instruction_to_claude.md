@@ -1,7 +1,9 @@
-use this for my bio instead.
+use this personal information to amend my website where necessary e.g., the specifics section and other sections in the website.
 
-I'm Wee Han, and I coach secondary, IP and JC math one-to-one. If your child understands things in class but freezes on their own, or keeps making the "same silly mistake," that's usually not carelessness and never a sign they can't do math. More often it's a couple of specific misconceptions sitting underneath, quietly costing marks.
-
-What I do is find where the reasoning actually breaks, work out why, and check the fix holds across the different ways an exam can ask the same thing. It's detailed work, and it's the part that tends to move a grade.
-
-I only take on a handful of students at once, so the plan stays genuinely built around your child.
+Masters in Data Science and Machine Learning from NUS
+Highest Distinction in Mathematics from NUS
+5 year + of coaching O-level and A-level
+Do not need to write how many kids i taught
+I am not a MOE registered tutor so no need to add that
+My handphone number is +65 83821568
+Email is whlabssg@gmail.com
