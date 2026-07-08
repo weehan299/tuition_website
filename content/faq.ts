@@ -5,12 +5,14 @@
 
 import { site } from "./site";
 
-export type FaqItem = { q: string; a: string };
+// `featured` items also appear on the home page; the full list lives at /faq.
+export type FaqItem = { q: string; a: string; featured?: boolean };
 
 export const faq: FaqItem[] = [
   {
     q: "How is this different from a regular tuition centre?",
     a: "A centre teaches a shared curriculum to a room. This is the opposite: a written diagnostic first, then a plan built only for your child's specific gaps, adjusted every week. You're paying for the diagnosis and the individual plan — not a seat in a class.",
+    featured: true,
   },
   {
     q: "How does the diagnostic work, and what happens after it?",
@@ -19,14 +21,17 @@ export const faq: FaqItem[] = [
   {
     q: "What levels and subjects do you cover?",
     a: "Secondary math (Sec 1–4; E Math and A Math for O-Level) and A-Level math at JC. If it's outside this, I'll tell you honestly at the enquiry stage.",
+    featured: true,
   },
   {
     q: "In person, online, or both — and which areas do you serve?",
     a: `${site.mode}. In-person coaching covers ${site.areasServed.split(";")[0].trim()}. Online works just as well for most students and opens up the rest of Singapore.`,
+    featured: true,
   },
   {
     q: "How is billing handled — hourly or a package?",
-    a: "Billed by the hour at the end of each month, not in packages — so you're never committing to a block up front. The hourly rate is stated plainly in the coaching section above.",
+    a: "Billed by the hour at the end of each month, not in packages — so you're never committing to a block up front. The hourly rate is stated plainly in the coaching section of the main page.",
+    featured: true,
   },
   {
     q: "How do you decide whether my child is a fit?",

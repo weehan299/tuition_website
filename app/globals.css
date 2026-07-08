@@ -127,6 +127,14 @@
     opacity: 0.55;
   }
 
+  /* Hide the scrollbar on horizontal card rows (the peeking card is the cue) */
+  .no-scrollbar {
+    scrollbar-width: none;
+  }
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
   /* Tabular figures for exam data (grades, stats, rate) */
   .nums {
     font-family: var(--font-mono);

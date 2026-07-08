@@ -17,18 +17,24 @@ const schools = [
 
 export function SocialProof() {
   return (
-    <section id="proof" className="scroll-mt-20 border-t border-line bg-paper-2/50 py-20 sm:py-28">
+    <section id="proof" className="scroll-mt-20 border-t border-line bg-paper-2/50 py-14 sm:py-20">
       <Container>
         <Eyebrow>{copy.socialProof.eyebrow}</Eyebrow>
         <h2 className="mt-6 max-w-2xl font-serif text-3xl leading-tight sm:text-[2.6rem]">
           {copy.socialProof.heading}
         </h2>
 
-        <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        {/* Mobile: full-bleed swipe row; sm+: the original grid */}
+        <div
+          role="region"
+          aria-label="Testimonials"
+          tabIndex={0}
+          className="no-scrollbar -mx-5 mt-12 flex snap-x snap-mandatory gap-4 overflow-x-auto scroll-pl-5 px-5 sm:mx-0 sm:grid sm:grid-cols-2 sm:overflow-visible sm:px-0 lg:grid-cols-3"
+        >
           {wall.map((t) => (
             <figure
               key={t.name}
-              className="flex flex-col rounded-xl border border-line bg-paper p-6"
+              className="flex w-[82%] max-w-xs shrink-0 snap-start flex-col rounded-xl border border-line bg-paper p-6 sm:w-auto sm:max-w-none"
             >
               {t.result ? (
                 <ResultBadge from={t.result.from} to={t.result.to} />

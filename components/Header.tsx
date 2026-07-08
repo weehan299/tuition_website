@@ -1,17 +1,19 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Link from "next/link";
 import { Check, Menu, X } from "lucide-react";
 import { site } from "@/content/site";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 import { Container } from "@/components/ui";
 import { cn } from "@/lib/cn";
 
+// Absolute paths so the header also works on standalone routes like /faq.
 const NAV = [
-  { href: "#coaching", label: "How it works" },
-  { href: "#proof", label: "Results" },
-  { href: "#about", label: "About" },
-  { href: "#faq", label: "FAQ" },
+  { href: "/#coaching", label: "How it works" },
+  { href: "/#proof", label: "Results" },
+  { href: "/#about", label: "About" },
+  { href: "/#faq", label: "FAQ" },
 ];
 
 export function Header() {
@@ -36,8 +38,8 @@ export function Header() {
     <>
       <header className="sticky top-0 z-40 border-b border-line/70 bg-paper/85 backdrop-blur-sm">
         <Container className="flex h-16 items-center justify-between">
-          <a
-            href="#top"
+          <Link
+            href="/"
             className="flex items-baseline gap-2"
             aria-label={`${site.brandName} — home`}
           >
@@ -52,24 +54,24 @@ export function Header() {
               </span>
             </span>
             <span className="eyebrow hidden sm:inline">Math Tuition</span>
-          </a>
+          </Link>
 
           <nav className="hidden items-center gap-7 md:flex">
             {NAV.map((item) => (
-              <a
+              <Link
                 key={item.href}
                 href={item.href}
                 className="text-sm text-ink-soft underline-offset-4 transition-colors hover:text-ink hover:underline"
               >
                 {item.label}
-              </a>
+              </Link>
             ))}
-            <a
-              href="#enquire"
+            <Link
+              href="/#enquire"
               className="rounded-md bg-green px-4 py-2 text-sm font-medium text-paper transition-colors hover:bg-green-deep"
             >
               Enquire
-            </a>
+            </Link>
           </nav>
 
           <button
@@ -92,22 +94,22 @@ export function Header() {
         >
           <Container className="flex flex-col gap-1 py-3">
             {NAV.map((item) => (
-              <a
+              <Link
                 key={item.href}
                 href={item.href}
                 onClick={() => setOpen(false)}
                 className="rounded-md px-2 py-2.5 text-[0.95rem] text-ink hover:bg-ink/[0.04]"
               >
                 {item.label}
-              </a>
+              </Link>
             ))}
-            <a
-              href="#enquire"
+            <Link
+              href="/#enquire"
               onClick={() => setOpen(false)}
               className="mt-1 rounded-md bg-green px-2 py-2.5 text-center text-[0.95rem] font-medium text-paper"
             >
               Enquire about a slot
-            </a>
+            </Link>
           </Container>
         </div>
       </header>

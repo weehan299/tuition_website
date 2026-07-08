@@ -176,6 +176,13 @@ export const copy = {
     heading: "The questions parents ask first.",
   },
 
+  // Standalone /faq page (full list; the home section shows featured items only).
+  faqPage: {
+    eyebrow: "Before you enquire",
+    heading: "Every question, answered.",
+    seeAll: "See all questions",
+  },
+
   finalCta: {
     eyebrow: "Enquire",
     heading: "Is your child a fit for this?",

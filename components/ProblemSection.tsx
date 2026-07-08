@@ -3,7 +3,7 @@ import { Container, Eyebrow } from "@/components/ui";
 
 export function ProblemSection() {
   return (
-    <section className="border-t border-line py-20 sm:py-28">
+    <section className="border-t border-line py-14 sm:py-20">
       <Container>
         <Eyebrow>{copy.problem.eyebrow}</Eyebrow>
         <h2 className="mt-6 max-w-3xl font-serif text-3xl leading-tight sm:text-[2.6rem]">

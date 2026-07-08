@@ -6,7 +6,7 @@ import { Tick } from "@/components/Marks";
 
 export function About() {
   return (
-    <section id="about" className="scroll-mt-20 border-t border-line py-20 sm:py-28">
+    <section id="about" className="scroll-mt-20 border-t border-line py-14 sm:py-20">
       <Container className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:items-start lg:gap-16">
         <div>
           <Image

@@ -32,7 +32,7 @@ function Step({
         </span>
         <span className="eyebrow">{label}</span>
       </div>
-      <div className={cn("pb-12", !last && "border-b border-line")}>
+      <div className={cn("min-w-0 pb-10", !last && "border-b border-line")}>
         <h3 className="font-serif text-2xl leading-snug sm:text-[1.7rem]">
           {title}
         </h3>
@@ -46,7 +46,7 @@ export function CoachingSection() {
   return (
     <section
       id="coaching"
-      className="scroll-mt-20 border-t border-line bg-paper-2/50 py-20 sm:py-28"
+      className="scroll-mt-20 border-t border-line bg-paper-2/50 py-14 sm:py-20"
     >
       <Container>
         <Eyebrow>{copy.coaching.eyebrow}</Eyebrow>
@@ -57,7 +57,7 @@ export function CoachingSection() {
           {copy.coaching.intro}
         </p>
 
-        <ol className="mt-16 space-y-12">
+        <ol className="mt-12 space-y-10">
           {/* 01 ─ The fix. Leads with the mechanism (a callback to the hero
               diagnostic), then the two remaining operational facts. */}
           <Step n="01" label="The fix" title={copy.coaching.method.title}>
@@ -77,11 +77,17 @@ export function CoachingSection() {
           {/* 02 ─ Evidence */}
           <Step n="02" label="Evidence" title={copy.coaching.evidence.title}>
             <p className="text-ink-soft">{copy.coaching.evidence.lead}</p>
-            <div className="mt-6 grid gap-4 sm:grid-cols-3">
+            {/* Mobile: full-bleed swipe row; sm+: the original grid */}
+            <div
+              role="region"
+              aria-label="Case studies"
+              tabIndex={0}
+              className="no-scrollbar -mx-5 mt-6 flex snap-x snap-mandatory gap-4 overflow-x-auto scroll-pl-5 px-5 sm:mx-0 sm:grid sm:grid-cols-3 sm:overflow-visible sm:px-0"
+            >
               {caseStudies.map((t) => (
                 <figure
                   key={t.name}
-                  className="flex flex-col rounded-xl border border-line bg-paper p-5"
+                  className="flex w-[82%] max-w-xs shrink-0 snap-start flex-col rounded-xl border border-line bg-paper p-5 sm:w-auto sm:max-w-none"
                 >
                   {t.echoes ? (
                     <p className="eyebrow mb-3 !text-mark">

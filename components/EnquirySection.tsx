@@ -8,7 +8,7 @@ import { Container, Eyebrow } from "@/components/ui";
 
 export function EnquirySection() {
   return (
-    <section id="enquire" className="scroll-mt-20 border-t border-line py-20 sm:py-28">
+    <section id="enquire" className="scroll-mt-20 border-t border-line py-14 sm:py-20">
       <Container className="grid gap-12 lg:grid-cols-2 lg:gap-16">
         {/* Left — the three contact paths */}
         <div>
