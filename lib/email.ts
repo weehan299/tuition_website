@@ -28,23 +28,34 @@ export async function sendEnquiryEmails(lead: Lead): Promise<void> {
   const { Resend } = await import("resend");
   const resend = new Resend(apiKey);
 
+  // Resend returns API failures (unverified sender, rejected recipient) as
+  // `{ error }` rather than throwing, so check it explicitly. Failures are
+  // logged, not thrown: the lead is already persisted by saveLead(), and
+  // failing the request would just invite a duplicate resubmission.
+
   // 1) Owner notification — always.
-  await resend.emails.send({
+  const owner = await resend.emails.send({
     from: FROM,
     to: OWNER_INBOX,
     subject: `New 1-to-1 enquiry — ${lead.parentName} (${lead.level})`,
     replyTo: lead.email || undefined,
     html: ownerHtml(lead),
   });
+  if (owner.error) {
+    console.error("[email] owner notification failed:", owner.error);
+  }
 
   // 2) Enquirer auto-confirmation — only when an email was provided.
   if (lead.email) {
-    await resend.emails.send({
+    const confirm = await resend.emails.send({
       from: FROM,
       to: lead.email,
       subject: `We've got your enquiry — ${site.brandName}`,
       html: confirmationHtml(lead),
     });
+    if (confirm.error) {
+      console.error("[email] enquirer confirmation failed:", confirm.error);
+    }
   }
 }
 

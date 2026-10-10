@@ -7,7 +7,7 @@
 import { z } from "zod";
 
 /** Student level options — also used to render the <select>. */
-export const LEVELS = ["Sec 1", "Sec 2", "Sec 3", "Sec 4"] as const;
+export const LEVELS = ["Sec 1", "Sec 2", "Sec 3", "Sec 4", "JC 1", "JC 2"] as const;
 export type Level = (typeof LEVELS)[number];
 
 /** The visible form fields + PDPA consent. */

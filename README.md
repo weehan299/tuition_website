@@ -76,11 +76,25 @@ message in `content/site.ts`.
 The datastore adapter (`lib/datastore.ts`) POSTs each lead as JSON to a Google
 Apps Script web app. Setup:
 
-1. Create a Google Sheet with a header row matching the lead fields.
-2. **Extensions → Apps Script**, paste a `doPost(e)` that appends
-   `JSON.parse(e.postData.contents)` as a row.
+1. Create a Google Sheet with this header row, then select all columns and set
+   **Format → Number → Plain text** (keeps the `+` on phone numbers and stops a
+   value starting with `=` being run as a formula):
+   `submittedAt | source | parentName | contact | email | level | grade | issue | schedule | heardFrom | consent`
+2. **Extensions → Apps Script**, replace the editor contents with:
+   ```js
+   const COLUMNS = ["submittedAt", "source", "parentName", "contact", "email", "level",
+                    "grade", "issue", "schedule", "heardFrom", "consent"];
+
+   function doPost(e) {
+     const lead = JSON.parse(e.postData.contents);
+     SpreadsheetApp.getActiveSpreadsheet().getSheets()[0]
+       .appendRow(COLUMNS.map((k) => (lead[k] === undefined ? "" : lead[k])));
+     return ContentService.createTextOutput(JSON.stringify({ ok: true }))
+       .setMimeType(ContentService.MimeType.JSON);
+   }
+   ```
 3. **Deploy → New deployment → Web app**, execute as *you*, access *Anyone*.
-4. Copy the web-app URL into `SHEETS_WEBHOOK_URL`.
+4. Copy the web-app URL (ends in `/exec`) into `SHEETS_WEBHOOK_URL`.
 
 Prefer Airtable/a CRM? Swap the single `fetch` in `lib/datastore.ts` — the rest
 of the app is untouched (an Airtable snippet is in the file's comments).
