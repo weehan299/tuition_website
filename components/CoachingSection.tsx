@@ -1,16 +1,14 @@
-import { site } from "@/content/site";
 import { copy } from "@/content/copy";
 import { testimonials } from "@/content/testimonials";
 import { Container, Eyebrow } from "@/components/ui";
 import { Tick } from "@/components/Marks";
 import { ResultBadge } from "@/components/ResultBadge";
-import { WhatsAppButton } from "@/components/WhatsAppButton";
 import { cn } from "@/lib/cn";
 
 const caseStudies = testimonials.filter((t) => t.kind === "case-study");
 
 /** One block of the coaching walkthrough. The numbering encodes a real
- *  narrative order: how it works → proof → what's included → rate → next step. */
+ *  narrative order: how it works → proof → what's included → rate. */
 function Step({
   n,
   label,
@@ -98,11 +96,17 @@ export function CoachingSection() {
                   {t.result ? (
                     <ResultBadge from={t.result.from} to={t.result.to} />
                   ) : null}
-                  <blockquote className="mt-4 flex-1 text-[0.98rem] leading-relaxed text-ink">
+                  <blockquote
+                    lang={t.lang}
+                    className="mt-4 flex-1 text-[0.98rem] leading-relaxed text-ink"
+                  >
                     &ldquo;{t.quote}&rdquo;
                   </blockquote>
                   <figcaption className="mt-4 text-sm text-ink-soft">
-                    <span className="font-medium text-ink">{t.name}</span> ·{" "}
+                    <span lang={t.lang} className="font-medium text-ink">
+                      {t.name}
+                    </span>{" "}
+                    ·{" "}
                     {t.level}
                   </figcaption>
                 </figure>
@@ -123,35 +127,14 @@ export function CoachingSection() {
           </Step>
 
           {/* 04 ─ Rate. Stated once, unqualified. */}
-          <Step n="04" label="Rate" title={copy.coaching.rate.title}>
+          <Step n="04" label="Rate" title={copy.coaching.rate.title} last>
             <p className="text-ink">
               <span className="nums text-5xl font-medium sm:text-6xl">$140</span>{" "}
               <span className="text-xl text-ink-soft">per hour</span>
             </p>
             <p className="mt-4 text-ink-soft">{copy.coaching.rate.clarifier}</p>
           </Step>
-
-          {/* 05 ─ Fit */}
-          <Step n="05" label="Fit" title={copy.coaching.fit.title} last>
-            <p className="measure text-ink-soft">{copy.coaching.fit.body}</p>
-            <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:items-center">
-              <WhatsAppButton
-                label={copy.coaching.fit.cta}
-                context="coaching-fit"
-              />
-              <a
-                href="#enquire"
-                className="inline-flex items-center justify-center px-2 py-3 text-[0.95rem] font-medium text-ink underline-offset-4 hover:underline"
-              >
-                Or send the enquiry form →
-              </a>
-            </div>
-          </Step>
         </ol>
-
-        <p className="mt-10 text-sm text-ink-soft">
-          {site.mode}. {site.areasServed}.
-        </p>
       </Container>
     </section>
   );

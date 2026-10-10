@@ -31,9 +31,9 @@ export const site = {
   // section (the Rate block). Do not add comparisons or apologies around it.
   ratePerHour: "$140 per hour",
 
-  // TODO: confirm mode + areas. Feeds the FAQ, footer, and LocalBusiness schema.
-  mode: "Online across Singapore, and in-person in the east",
-  areasServed: "Tampines · Bedok · Pasir Ris · Simei (in-person); anywhere in Singapore (online)",
+  // Coverage. Feeds the "What's included" list and the footer.
+  mode: "In-person anywhere in Singapore, or online",
+  areasServed: "Anywhere in Singapore",
 
   // How fast you promise to reply. Sets expectations on the form.
   responseWindow: "within 24 hours on weekdays",

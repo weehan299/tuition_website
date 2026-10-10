@@ -140,14 +140,6 @@ export const copy = {
       // Rendered once, unqualified. The only neutral clarifier permitted:
       clarifier: "Billed at the end of the month. No package lock-in.",
     },
-
-    fit: {
-      title: "See if it's a fit",
-      body: "Places are taken on fit, and a few open each term. Send a short enquiry and we'll arrange a call to check whether the coaching is right for your child.",
-      // TODO (open item): decide free trial vs paid diagnostic — this CTA and
-      // the confirmation email should say the same thing.
-      cta: "Enquire about suitability and availability",
-    },
   },
 
   about: {
@@ -171,16 +163,10 @@ export const copy = {
     heading: "Grades that moved, in their families' words.",
   },
 
-  faq: {
-    eyebrow: "Before you enquire",
-    heading: "The questions parents ask first.",
-  },
-
-  // Standalone /faq page (full list; the home section shows featured items only).
+  // Standalone /faq page (linked from the header nav; not on the home page).
   faqPage: {
     eyebrow: "Before you enquire",
     heading: "Every question, answered.",
-    seeAll: "See all questions",
   },
 
   enquiry: {

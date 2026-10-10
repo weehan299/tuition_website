@@ -11,6 +11,8 @@
  *                       list's 1-based index, padded to two digits, so the card
  *                       reads as the *resolution* of a stated pattern, not a
  *                       re-listing of it. Case studies only.
+ *  lang (optional)    → BCP 47 tag for a quote not in English (e.g. "zh-Hans"),
+ *                       so the right CJK font and screen-reader voice are used.
  */
 
 export type Testimonial = {
@@ -20,6 +22,7 @@ export type Testimonial = {
   kind: "case-study" | "short";
   result?: { from: string; to: string };
   echoes?: { n: string; label: string };
+  lang?: string;
 };
 
 export const testimonials: Testimonial[] = [
@@ -44,10 +47,12 @@ export const testimonials: Testimonial[] = [
   {
     kind: "case-study",
     quote:
-      "I actually understand what I'm doing now instead of copying a method. When a question looks different I can still start it.",
-    name: "Rachel",
-    level: "Sec 4 student",
-    echoes: { n: "01", label: "got it in class, lost it alone" },
+      "Weehan 的教学非常有系统，能帮助儿子清楚了解自己的弱点，并有针对性地提升数学能力，效果让我很满意！",
+    name: "张太太",
+    level: "Parent of O-Level student",
+    result: { from: "B3", to: "A1" },
+    echoes: { n: "03", label: "one weak topic dragging the grade down" },
+    lang: "zh-Hans",
   },
   {
     kind: "short",

@@ -48,6 +48,8 @@ export async function sendEnquiryEmails(lead: Lead): Promise<void> {
   }
 }
 
+// TODO (open item): decide free trial vs paid diagnostic — the promised
+// "short call" below should match whatever is decided.
 function confirmationHtml(lead: Lead): string {
   return wrap(`
     <h1 style="font-size:20px;margin:0 0 12px">Thank you, ${escape(lead.parentName)}.</h1>
