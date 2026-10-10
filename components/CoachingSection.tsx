@@ -1,5 +1,6 @@
+import { site } from "@/content/site";
 import { copy } from "@/content/copy";
-import { testimonials } from "@/content/testimonials";
+import { studentSchools, testimonials } from "@/content/testimonials";
 import { Container, Eyebrow } from "@/components/ui";
 import { Tick } from "@/components/Marks";
 import { ResultBadge } from "@/components/ResultBadge";
@@ -10,12 +11,14 @@ const caseStudies = testimonials.filter((t) => t.kind === "case-study");
 /** One block of the coaching walkthrough. The numbering encodes a real
  *  narrative order: how it works → proof → what's included → rate. */
 function Step({
+  id,
   n,
   label,
   title,
   children,
   last = false,
 }: {
+  id?: string;
   n: string;
   label: string;
   title: string;
@@ -23,7 +26,7 @@ function Step({
   last?: boolean;
 }) {
   return (
-    <li className="grid gap-4 sm:grid-cols-[6rem_1fr] sm:gap-10">
+    <li id={id} className="scroll-mt-20 grid gap-4 sm:grid-cols-[6rem_1fr] sm:gap-10">
       <div className="flex items-baseline gap-3 sm:flex-col sm:items-start sm:gap-1.5">
         <span className="nums text-3xl font-medium leading-none text-green">
           {n}
@@ -73,7 +76,7 @@ export function CoachingSection() {
           </Step>
 
           {/* 02 ─ Evidence */}
-          <Step n="02" label="Evidence" title={copy.coaching.evidence.title}>
+          <Step id="proof" n="02" label="Evidence" title={copy.coaching.evidence.title}>
             <p className="text-ink-soft">{copy.coaching.evidence.lead}</p>
             {/* Mobile: full-bleed swipe row; sm+: the original grid */}
             <div
@@ -112,6 +115,16 @@ export function CoachingSection() {
                 </figure>
               ))}
             </div>
+            <div className="mt-8 border-t border-line pt-6">
+              <p className="eyebrow">{copy.coaching.evidence.schoolsLabel}</p>
+              <ul className="mt-4 flex flex-wrap gap-x-6 gap-y-2 text-ink-soft">
+                {studentSchools.map((school) => (
+                  <li key={school} className="text-[0.95rem]">
+                    {school}
+                  </li>
+                ))}
+              </ul>
+            </div>
           </Step>
 
           {/* 03 ─ What's included */}
@@ -126,13 +139,22 @@ export function CoachingSection() {
             </ul>
           </Step>
 
-          {/* 04 ─ Rate. Stated once, unqualified. */}
+          {/* 04 ─ Rates. Each stated once, unqualified. */}
           <Step n="04" label="Rate" title={copy.coaching.rate.title} last>
-            <p className="text-ink">
-              <span className="nums text-5xl font-medium sm:text-6xl">$140</span>{" "}
-              <span className="text-xl text-ink-soft">per hour</span>
-            </p>
-            <p className="mt-4 text-ink-soft">{copy.coaching.rate.clarifier}</p>
+            <dl className="grid max-w-2xl gap-8 sm:grid-cols-2">
+              {site.rates.map((r) => (
+                <div key={r.format}>
+                  <dt className="eyebrow">{r.format}</dt>
+                  <dd className="mt-2 text-ink">
+                    <span className="nums text-5xl font-medium sm:text-6xl">
+                      {r.amount}
+                    </span>{" "}
+                    <span className="text-xl text-ink-soft">{r.unit}</span>
+                  </dd>
+                </div>
+              ))}
+            </dl>
+            <p className="mt-6 text-ink-soft">{copy.coaching.rate.clarifier}</p>
           </Step>
         </ol>
       </Container>

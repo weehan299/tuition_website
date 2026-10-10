@@ -25,12 +25,12 @@ const plexMono = IBM_Plex_Mono({
 });
 
 const description =
-  "Diagnostic-led 1-to-1 math coaching for secondary students in Singapore. We find the exact reason a grade is stuck — and fix it.";
+  "Diagnostic-led math coaching, 1-to-1 and in small groups, for secondary and JC students in Singapore. We find the exact reason a grade is stuck — and fix it.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: `${site.brandName} — Diagnostic-led 1-to-1 Math Coaching`,
+    default: `${site.brandName} — Diagnostic-led Math Coaching`,
     template: `%s · ${site.brandName}`,
   },
   description,
@@ -42,6 +42,7 @@ export const metadata: Metadata = {
     "A-Level math tuition",
     "A Math tutor",
     "private math tuition",
+    "small group math tuition",
   ],
   alternates: { canonical: "/" },
   openGraph: {
@@ -49,12 +50,12 @@ export const metadata: Metadata = {
     locale: "en_SG",
     url: site.url,
     siteName: site.brandName,
-    title: `${site.brandName} — Diagnostic-led 1-to-1 Math Coaching`,
+    title: `${site.brandName} — Diagnostic-led Math Coaching`,
     description,
   },
   twitter: {
     card: "summary_large_image",
-    title: `${site.brandName} — Diagnostic-led 1-to-1 Math Coaching`,
+    title: `${site.brandName} — Diagnostic-led Math Coaching`,
     description,
   },
   robots: { index: true, follow: true },
@@ -79,7 +80,7 @@ export default function RootLayout({
     email: site.email,
     areaServed: "Singapore",
     description:
-      "Diagnostic-led 1-to-1 math coaching for secondary students.",
+      "Diagnostic-led math coaching, 1-to-1 and in small groups, for secondary and JC students.",
     sameAs: Object.values(site.socials).filter(Boolean),
   };
 

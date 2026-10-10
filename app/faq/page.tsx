@@ -10,7 +10,7 @@ import { Container, Eyebrow } from "@/components/ui";
 
 export const metadata: Metadata = {
   title: "FAQ",
-  description: `Answers to the questions parents ask before enquiring about ${site.brandName}'s 1-to-1 math coaching.`,
+  description: `Answers to the questions parents ask before enquiring about ${site.brandName}'s math coaching.`,
   robots: { index: true, follow: true },
   alternates: { canonical: "/faq" },
 };

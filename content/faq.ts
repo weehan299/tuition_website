@@ -10,7 +10,11 @@ export type FaqItem = { q: string; a: string };
 export const faq: FaqItem[] = [
   {
     q: "How is this different from a regular tuition centre?",
-    a: "A centre teaches a shared curriculum to a room. This is the opposite: a written diagnostic first, then a plan built only for your child's specific gaps, adjusted every week. You're paying for the diagnosis and the individual plan — not a seat in a class.",
+    a: "A centre teaches a set curriculum to a room. Here every student starts with a written diagnostic, and lessons target the gaps it finds — your child's alone in 1-to-1, or the gaps a small group shares — adjusted every week. You're paying for the diagnosis, not a seat in a class.",
+  },
+  {
+    q: "1-to-1 or small group — which suits my child?",
+    a: "1-to-1 suits a child whose gaps are their own, or who needs the pace set entirely around them. A small group (up to six, two hours a week) works well when students share similar gaps and benefit from working alongside others. Everyone sits the diagnostic first, and I'll recommend a format on the call.",
   },
   {
     q: "How does the diagnostic work, and what happens after it?",
@@ -26,7 +30,7 @@ export const faq: FaqItem[] = [
   },
   {
     q: "How is billing handled — hourly or a package?",
-    a: "Billed by the hour at the end of each month, not in packages — so you're never committing to a block up front. The hourly rate is stated plainly in the coaching section of the main page.",
+    a: "Billed by the hour at the end of each month, not in packages — so you're never committing to a block up front. Both hourly rates — 1-to-1 and small group — are stated plainly in the coaching section of the main page.",
   },
   {
     q: "How do you decide whether my child is a fit?",

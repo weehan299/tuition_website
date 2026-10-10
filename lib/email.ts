@@ -37,7 +37,7 @@ export async function sendEnquiryEmails(lead: Lead): Promise<void> {
   const owner = await resend.emails.send({
     from: FROM,
     to: OWNER_INBOX,
-    subject: `New 1-to-1 enquiry — ${lead.parentName} (${lead.level})`,
+    subject: `New enquiry — ${lead.parentName} (${lead.level})`,
     replyTo: lead.email || undefined,
     html: ownerHtml(lead),
   });
@@ -64,7 +64,7 @@ export async function sendEnquiryEmails(lead: Lead): Promise<void> {
 function confirmationHtml(lead: Lead): string {
   return wrap(`
     <h1 style="font-size:20px;margin:0 0 12px">Thank you, ${escape(lead.parentName)}.</h1>
-    <p>Your enquiry about 1-to-1 math coaching for your ${escape(lead.level)} child has arrived.</p>
+    <p>Your enquiry about math coaching for your ${escape(lead.level)} child has arrived.</p>
     <p>We'll reply <strong>${site.responseWindow}</strong> to arrange a short call and check
        whether the coaching is the right fit for your child.</p>
     <p style="color:#57534a">If it's easier, you can also reach us on WhatsApp any time.</p>

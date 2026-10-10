@@ -19,7 +19,7 @@ export function Footer() {
               </span>
             </div>
             <p className="measure mt-3 text-sm leading-relaxed text-ink-soft">
-              Diagnostic-led 1-to-1 math coaching for secondary students. We find
+              Diagnostic-led math coaching for secondary students. We find
               the exact reason a grade is stuck — and fix it.
             </p>
           </div>

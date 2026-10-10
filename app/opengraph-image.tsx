@@ -4,7 +4,7 @@ import { site } from "@/content/site";
 // Rich WhatsApp/social preview, baked at build time (brief §7).
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
-export const alt = `${site.brandName} — diagnostic-led 1-to-1 math coaching`;
+export const alt = `${site.brandName} — diagnostic-led math coaching`;
 
 export default function OpengraphImage() {
   return new ImageResponse(
@@ -93,7 +93,7 @@ export default function OpengraphImage() {
         </div>
 
         <div style={{ color: "#57534a", fontSize: 30 }}>
-          Diagnostic-led 1-to-1 math coaching · Secondary · Singapore
+          Diagnostic-led math coaching · Secondary · Singapore
         </div>
       </div>
     ),

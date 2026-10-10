@@ -4,7 +4,7 @@
  * The brief requires real attribution; avoid generic "great teacher" lines.
  *
  *  kind: "case-study" → shown as evidence inside the coaching section (Step 2)
- *  kind: "short"      → shown in the Social Proof wall
+ *  kind: "short"      → retained quotes, currently not displayed
  *  result (optional)  → a { from, to } grade jump, rendered as a marked uplift
  *  echoes (optional)  → ties a case study back to a numbered symptom from the
  *                       Problem section (failureModes). `n` must match that
@@ -25,6 +25,16 @@ export type Testimonial = {
   lang?: string;
 };
 
+// TODO: replace with the real schools your past students attend, or delete
+// this strip if you'd rather not list them.
+export const studentSchools = [
+  "Victoria School",
+  "Cedar Girls'",
+  "Temasek Sec",
+  "St. Andrew's",
+  "Tanjong Katong",
+] as const;
+
 export const testimonials: Testimonial[] = [
   {
     kind: "case-study",
@@ -33,7 +43,7 @@ export const testimonials: Testimonial[] = [
     name: "Mrs Lim",
     level: "Parent of Sec 3 student",
     result: { from: "C6", to: "A1" },
-    echoes: { n: "02", label: "the silly mistakes that kept coming back" },
+    echoes: { n: "01", label: "understood it in class, lost it on paper" },
   },
   {
     kind: "case-study",

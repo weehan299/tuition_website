@@ -20,13 +20,12 @@ export function Hero() {
           </p>
 
           <h1 className="mt-6 font-serif text-[clamp(2.4rem,6.2vw,4.15rem)] font-medium leading-[1.03]">
-            Your child doesn&rsquo;t need{" "}
             <span className="whitespace-nowrap text-ink-soft line-through decoration-mark decoration-[3px]">
-              more tuition.
-            </span>{" "}
-            They need the{" "}
+              More tuition.
+            </span>
+            <br />
             <span className="relative inline-block whitespace-nowrap">
-              right diagnosis.
+              Right diagnosis.
               <UnderlineMark className="-bottom-2 left-0 h-3 w-full overflow-visible" />
             </span>
           </h1>
@@ -78,13 +77,6 @@ export function Hero() {
           className="relative mx-auto w-full max-w-lg lg:mx-0"
         >
           <div className="rounded-xl border border-line bg-white/70 p-4 shadow-[0_1px_0_rgba(0,0,0,0.02),0_18px_40px_-24px_rgba(26,25,23,0.35)] backdrop-blur-[2px] sm:p-7">
-            <figcaption className="eyebrow mb-5 flex items-center justify-between sm:mb-6">
-              <span>{copy.hero.diagnostic.eyebrow}</span>
-              <span aria-hidden className="text-mark">
-                ✎
-              </span>
-            </figcaption>
-
             {/* The convergence: 4 corners → 1 node */}
             <div className="relative aspect-[5/4] sm:aspect-[7/5]">
               {/* Leader lines. Behind the panels, covered at the centre by the node. */}

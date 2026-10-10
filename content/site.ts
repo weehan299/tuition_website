@@ -11,7 +11,7 @@ export const site = {
   // ── Brand ────────────────────────────────────────────────────────────
   brandName: "Weehan Math Tuition",
   tutorName: "Wee Han",
-  tutorRole: "Math tutor · Diagnostic-led 1-to-1 coaching",
+  tutorRole: "Math tutor · Diagnostic-led coaching",
 
   // Canonical production URL (no trailing slash). Also used for SEO/OG.
   url: (process.env.NEXT_PUBLIC_SITE_URL || "https://weehanmathtuition.com").replace(
@@ -27,9 +27,12 @@ export const site = {
   email: "whlabssg@gmail.com",
 
   // ── Offer ────────────────────────────────────────────────────────────
-  // Rate is fixed by the brief. Stated once, unqualified, in the coaching
-  // section (the Rate block). Do not add comparisons or apologies around it.
-  ratePerHour: "$140 per hour",
+  // Rates. Each is stated once, unqualified, in the coaching section (the
+  // Rate block). Do not add comparisons or apologies around them.
+  rates: [
+    { format: "1-to-1", amount: "$140", unit: "per hour" },
+    { format: "Small group", amount: "$70", unit: "per student, per hour" },
+  ],
 
   // Coverage. Feeds the "What's included" list and the footer.
   mode: "In-person anywhere in Singapore, or online",
@@ -62,4 +65,4 @@ export function whatsappLink(message?: string): string {
 
 /** The default pre-fill for the primary "Enquire about a slot" CTA. */
 export const whatsappPrefill =
-  "Hi, I'd like to enquire about a 1-to-1 slot for my [Sec X] child.";
+  "Hi, I'd like to enquire about a slot (1-to-1 or small group) for my [Sec X] child.";

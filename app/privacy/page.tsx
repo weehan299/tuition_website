@@ -40,7 +40,7 @@ export default function PrivacyPage() {
             <section>
               <h2>Who we are</h2>
               <p>
-                {site.brandName} (&ldquo;we&rdquo;) provides 1-to-1 math coaching
+                {site.brandName} (&ldquo;we&rdquo;) provides math coaching
                 in Singapore. For any privacy question, contact us at{" "}
                 <a
                   href={`mailto:${site.email}`}

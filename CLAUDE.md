@@ -52,7 +52,7 @@ Each integration is a single-function adapter that **degrades gracefully when it
 Enforce on every content edit — these are not stylistic preferences:
 
 - **Say each thing once**, and no apologetic price framing anywhere ("although the fee is higher", "premium but", comparisons to cheaper tuition).
-- **The price appears exactly once**, in the coaching section's Rate block, as `$140 per session`, unqualified, and it never leads. `content/site.ts` holds the value; `content/copy.ts` documents the rule at the top of the file.
+- **Each rate appears exactly once**, in the coaching section's Rate block (`$140 per hour` 1-to-1, `$70 per student, per hour` small group), unqualified, and never leads. `content/site.ts` holds the values (`site.rates`); `content/copy.ts` documents the rule at the top of the file.
 - **Two-gesture colour system** defined in `app/globals.css` under `@theme`: `--color-green` = the fix / tick / primary CTA; `--color-mark` = the red pen circling the problem, used sparingly. Don't introduce a third accent.
 - Typography via `next/font` in `app/layout.tsx`: Fraunces (display serif) for headings, Inter for body, IBM Plex Mono for exam-data labels/grades/rate. Use the `.nums` utility for tabular figures.
 

@@ -1,8 +1,8 @@
 # Weehan Math Tuition — Landing Page
 
-A fast, mobile-first, single-page marketing site for a premium 1-to-1 math
-tuition service. Its one job is capturing qualified tuition enquiries via
-WhatsApp click-to-chat and an enquiry form.
+A fast, mobile-first, single-page marketing site for a premium math coaching
+service (1-to-1 and small groups). Its one job is capturing qualified tuition
+enquiries via WhatsApp click-to-chat and an enquiry form.
 
 Built from the Technical Spec + PRD in [`docs/`](docs/). Stack: **Next.js 16
 (App Router) · TypeScript · Tailwind CSS v4 · zod · Resend · Cloudflare
@@ -73,12 +73,56 @@ Set `NEXT_PUBLIC_WHATSAPP_NUMBER` to your number in **E.164 digits only**
 message in `content/site.ts`.
 
 ### Google Sheets (lead store) — `SHEETS_WEBHOOK_URL`
-The datastore adapter (`lib/datastore.ts`) POSTs each lead as JSON to a Google
-Apps Script web app. Setup:
+Every enquiry form submission becomes one row in a Google Sheet. Live in
+production since 2026-10-10.
+
+**How it's wired**
+
+- **Owner:** the Sheet and its Apps Script project belong to the Google account
+  **whlabssg@gmail.com**. Sign in as that account to read leads or edit the
+  script (open the Sheet → **Extensions → Apps Script**).
+- **Flow:** enquiry form → `POST /api/enquiry` → `saveLead()` in
+  `lib/datastore.ts` POSTs the lead as JSON to `SHEETS_WEBHOOK_URL` → the
+  script's `doPost` appends a row.
+- **Webhook URL:** the Apps Script web-app URL
+  (`https://script.google.com/macros/s/…/exec`). It is stored **only** in
+  Vercel (Settings → Environment Variables → `SHEETS_WEBHOOK_URL`, Production)
+  and in local `.env.local` (gitignored). **Never commit it.** This repo is
+  public, and anyone with the URL can add rows to the Sheet. To look it up: Apps
+  Script → **Deploy → Manage deployments**.
+- **Deployment settings:** Web app, *Execute as: Me (whlabssg@gmail.com)*, *Who
+  has access: Anyone*. "Anyone" is required because the website calls it without
+  a Google login. Version 2 is live; it stores phone numbers as text so the `+`
+  isn't dropped.
+
+**Changing the script**
+
+Edit and save, then **Deploy → Manage deployments → ✏️ → Version: New version →
+Deploy**. The URL stays the same, so nothing changes in Vercel.
+
+Avoid **Deploy → New deployment**: it creates a *new* URL. If you do use it,
+paste the new URL into `SHEETS_WEBHOOK_URL` in Vercel, then **Deployments →
+Redeploy**. Env var changes only reach the site on a new deployment.
+
+**Checking it works**
+
+- Open the `/exec` URL in a browser. *"Script function not found: doGet"* means
+  it's reachable (expected: the script only handles POSTs). A Google sign-in
+  page means access isn't set to *Anyone*.
+- Submit the live form with a name like `TEST — ignore`. A row should appear
+  within seconds; delete it afterwards. Do this after every script change.
+- If the form shows *"Something went wrong on our end"*, check Vercel → Logs for
+  `[datastore] webhook responded …`. It means the script returned an error
+  status or took longer than 8s.
+- **Known gap:** if the script itself crashes (e.g. the Sheet was deleted or
+  renamed), Apps Script still answers HTTP 200 with an HTML error page. The
+  site then reports success and the lead is lost. The TEST submission above
+  catches this.
+
+**Setting it up from scratch** (e.g. moving to a new Sheet)
 
 1. Create a Google Sheet with this header row, then select all columns and set
-   **Format → Number → Plain text** (keeps the `+` on phone numbers and stops a
-   value starting with `=` being run as a formula):
+   **Format → Number → Plain text**:
    `submittedAt | source | parentName | contact | email | level | grade | issue | schedule | heardFrom | consent`
 2. **Extensions → Apps Script**, replace the editor contents with:
    ```js
@@ -87,14 +131,19 @@ Apps Script web app. Setup:
 
    function doPost(e) {
      const lead = JSON.parse(e.postData.contents);
-     SpreadsheetApp.getActiveSpreadsheet().getSheets()[0]
-       .appendRow(COLUMNS.map((k) => (lead[k] === undefined ? "" : lead[k])));
+     // A leading apostrophe stores each value as text: phone numbers keep their
+     // "+" and leading zeros, and nothing starting with "=" runs as a formula.
+     const row = COLUMNS.map((k) =>
+       lead[k] === undefined || lead[k] === "" ? "" : "'" + lead[k]);
+     SpreadsheetApp.getActiveSpreadsheet().getSheets()[0].appendRow(row);
      return ContentService.createTextOutput(JSON.stringify({ ok: true }))
        .setMimeType(ContentService.MimeType.JSON);
    }
    ```
-3. **Deploy → New deployment → Web app**, execute as *you*, access *Anyone*.
-4. Copy the web-app URL (ends in `/exec`) into `SHEETS_WEBHOOK_URL`.
+3. **Deploy → New deployment → Web app**, *Execute as: Me*, *Who has access:
+   Anyone*.
+4. Copy the web-app URL (ends in `/exec`) into `SHEETS_WEBHOOK_URL` in Vercel
+   (Production) and `.env.local`, then redeploy and run the TEST check above.
 
 Prefer Airtable/a CRM? Swap the single `fetch` in `lib/datastore.ts` — the rest
 of the app is untouched (an Airtable snippet is in the file's comments).
@@ -150,7 +199,8 @@ a release blocker.
 - [ ] Replace every `TODO` in `content/*` (name, number, bio, testimonials, areas).
 - [ ] Add the tutor headshot + any session photos in `public/`.
 - [ ] Set `NEXT_PUBLIC_WHATSAPP_NUMBER` and confirm the pre-filled message.
-- [ ] Wire `SHEETS_WEBHOOK_URL`, `RESEND_*`, Turnstile keys, Plausible domain.
+- [x] Wire `SHEETS_WEBHOOK_URL` (Google Sheets, live 2026-10-10).
+- [ ] Wire `RESEND_*`, Turnstile keys, Plausible domain.
 - [ ] Decide free-trial vs paid-diagnostic wording (Step 6 CTA + confirmation email).
 - [ ] Confirm mode + areas served (feeds FAQ, footer, and JSON-LD).
 - [ ] Have `app/privacy/page.tsx` reviewed against your real data flow.
