@@ -53,8 +53,16 @@ Enforce on every content edit — these are not stylistic preferences:
 
 - **Say each thing once**, and no apologetic price framing anywhere ("although the fee is higher", "premium but", comparisons to cheaper tuition).
 - **Each rate appears exactly once**, in the coaching section's Rate block (`$140 per hour` 1-to-1, `$70 per student, per hour` small group), unqualified, and never leads. `content/site.ts` holds the values (`site.rates`); `content/copy.ts` documents the rule at the top of the file.
-- **Two-gesture colour system** defined in `app/globals.css` under `@theme`: `--color-green` = the fix / tick / primary CTA; `--color-mark` = the red pen circling the problem, used sparingly. Don't introduce a third accent.
+- **Two-gesture colour system** defined in `app/globals.css` under `@theme`: `--color-green` = the fix / tick / primary CTA; `--color-mark` = the red pen circling the problem, used sparingly. Don't introduce a third accent. The logo's navy + gold are the one exception and stay inside the mark (see Brand mark below) — never use them as UI colours or tokens.
 - Typography via `next/font` in `app/layout.tsx`: Fraunces (display serif) for headings, Inter for body, IBM Plex Mono for exam-data labels/grades/rate. Use the `.nums` utility for tabular figures.
+
+## Brand mark
+
+The master logo is `docs/brand/weehan-logo.png` (1254px, not served — too heavy for the page budget). Everything on the site derives from it:
+
+- `components/Logo.tsx` — inline-SVG redraw, weighted for header/footer size; also rendered by `app/opengraph-image.tsx` and `app/apple-icon.tsx` via Satori, so keep it to plain SVG attributes.
+- `app/icon.svg` — favicon cut (ring, dots, octahedron only) on a paper tile.
+- `public/logo.png` — 512px downscale of the master, referenced as `logo` in the JSON-LD.
 
 ## Tailwind v4
 

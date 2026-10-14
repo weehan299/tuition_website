@@ -2,8 +2,9 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { Check, Menu, X } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { site } from "@/content/site";
+import { Logo } from "@/components/Logo";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 import { Container } from "@/components/ui";
 import { cn } from "@/lib/cn";
@@ -40,20 +41,16 @@ export function Header() {
         <Container className="flex h-16 items-center justify-between">
           <Link
             href="/"
-            className="flex items-baseline gap-2"
+            className="flex items-center gap-2.5"
             aria-label={`${site.brandName} — home`}
           >
-            <span className="flex items-center gap-1.5">
-              <Check
-                className="h-4 w-4 text-green"
-                strokeWidth={3}
-                aria-hidden
-              />
+            <Logo className="h-10 w-10 shrink-0" />
+            <span className="flex items-baseline gap-2">
               <span className="font-serif text-xl font-medium tracking-tight text-ink">
                 Weehan
               </span>
+              <span className="eyebrow hidden sm:inline">Math Tuition</span>
             </span>
-            <span className="eyebrow hidden sm:inline">Math Tuition</span>
           </Link>
 
           <nav className="hidden items-center gap-7 md:flex">

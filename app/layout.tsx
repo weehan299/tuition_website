@@ -76,6 +76,7 @@ export default function RootLayout({
     "@type": "EducationalOrganization",
     name: site.brandName,
     url: site.url,
+    logo: `${site.url}/logo.png`,
     telephone: site.phoneE164,
     email: site.email,
     areaServed: "Singapore",

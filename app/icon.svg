@@ -1,4 +1,12 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
-  <rect width="32" height="32" rx="7" fill="#1e4a3c" />
-  <path d="M9 16.5 L14 21.5 L23 10.5" fill="none" stroke="#fbf9f3" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" />
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-512 -512 1024 1024">
+  <!-- Favicon cut of components/Logo.tsx: ticks, dashes and axis dropped so it reads at 16px. -->
+  <rect x="-512" y="-512" width="1024" height="1024" rx="224" fill="#fbf9f3" />
+  <path d="M440.7 61.9A445 445 0 0 1 61.9 440.7M-61.9 440.7A445 445 0 0 1 -440.7 61.9M-440.7 -61.9A445 445 0 0 1 -61.9 -440.7M61.9 -440.7A445 445 0 0 1 440.7 -61.9" fill="none" stroke="#b38747" stroke-width="40" />
+  <g fill="#b38747">
+    <circle cx="0" cy="-445" r="40" />
+    <circle cx="445" cy="0" r="40" />
+    <circle cx="0" cy="445" r="40" />
+    <circle cx="-445" cy="0" r="40" />
+  </g>
+  <path d="M0 -358L-357 0L0 358L357 0ZM0 -358L-145 51L0 358L145 51ZM-357 0L-145 51H145L357 0" fill="none" stroke="#03244e" stroke-width="56" stroke-linejoin="miter" stroke-miterlimit="2" />
 </svg>

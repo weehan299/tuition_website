@@ -1,5 +1,6 @@
 import { ImageResponse } from "next/og";
 import { site } from "@/content/site";
+import { Logo } from "@/components/Logo";
 
 // Rich WhatsApp/social preview, baked at build time (brief §7).
 export const size = { width: 1200, height: 630 };
@@ -32,27 +33,7 @@ export default function OpengraphImage() {
             textTransform: "uppercase",
           }}
         >
-          <div
-            style={{
-              width: 32,
-              height: 32,
-              borderRadius: 7,
-              background: "#1e4a3c",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-            }}
-          >
-            <svg width="19" height="19" viewBox="0 0 24 24" fill="none">
-              <path
-                d="M5 13 l4 4 l10 -11"
-                stroke="#fbf9f3"
-                strokeWidth="3.2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
-          </div>
+          <Logo size={64} />
           {site.brandName}
         </div>
 

@@ -1,5 +1,6 @@
-import { Check, MessageCircle, Mail, Phone, MapPin } from "lucide-react";
+import { MessageCircle, Mail, Phone, MapPin } from "lucide-react";
 import { site, whatsappLink } from "@/content/site";
+import { Logo } from "@/components/Logo";
 import { TrackedLink } from "@/components/TrackedLink";
 import { Container } from "@/components/ui";
 
@@ -12,8 +13,8 @@ export function Footer() {
         <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr]">
           {/* Brand */}
           <div>
-            <div className="flex items-center gap-1.5">
-              <Check className="h-4 w-4 text-green" strokeWidth={3} aria-hidden />
+            <div className="flex items-center gap-2.5">
+              <Logo className="h-11 w-11 shrink-0" />
               <span className="font-serif text-xl font-medium text-ink">
                 {site.brandName}
               </span>
